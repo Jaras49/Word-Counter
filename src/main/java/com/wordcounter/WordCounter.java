@@ -22,12 +22,10 @@ public class WordCounter implements Counter {
     public List<String> get3MostPopularWords(){
         int numOfWords = 3;
 
-        List<String> list = map.entrySet().stream()
+        return map.entrySet().stream()
                 .sorted((e1, e2) -> e2.getValue().compareTo(e1.getValue()))
                 .limit(numOfWords)
                 .map(Map.Entry::getKey)
                 .collect(Collectors.toList());
-        System.out.println(list);
-        return list;
     }
 }

@@ -36,8 +36,8 @@ public class WordCounterTestSuite {
 
         List<String> expectedResult = new ArrayList<>();
         expectedResult.add("cccccc");
-        expectedResult.add("bbb");
         expectedResult.add("ee");
+        expectedResult.add("bbb");
 
         //When
         List<String> result = wordCounter.get3MostPopularWords();

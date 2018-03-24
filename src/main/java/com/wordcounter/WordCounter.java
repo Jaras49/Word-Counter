@@ -1,10 +1,11 @@
 package com.wordcounter;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class WordCounter implements Counter {
-    HashMap<String, Integer> map;
 
+    HashMap<String, Integer> map;
 
     public WordCounter(){
         map = new HashMap<>();
@@ -21,19 +22,10 @@ public class WordCounter implements Counter {
     public List<String> get3MostPopularWords(){
         int numOfWords = 3;
 
-        ArrayList<Map.Entry<String, Integer>> entriesToSort = new ArrayList<>(map.entrySet());
-        ArrayList<String> listOfMostPopularWords = new ArrayList<>();
-
-        Collections.sort(entriesToSort, new Comparator<Map.Entry<String, Integer>>() {
-            @Override
-            public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
-
-                return o1.getValue().compareTo(o2.getValue());
-            }
-        });
-        for (int i = 0; i <numOfWords; i++){
-            listOfMostPopularWords.add(entriesToSort.get(entriesToSort.size() -1 - i ).getKey());
-        }
-        return listOfMostPopularWords;
+        return map.entrySet().stream()
+                .sorted((e1, e2) -> e2.getValue().compareTo(e1.getValue()))
+                .limit(numOfWords)
+                .map(Map.Entry::getKey)
+                .collect(Collectors.toList());
     }
 }

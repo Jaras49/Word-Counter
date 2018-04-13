@@ -11,10 +11,24 @@ public class TextReaderTestSuite {
 
         //Given
         Reader reader = new TextReader();
-        String expected = "Jarek Jarek Jarek Jarek               Jarek\n" +
-                "sadasdas sadasdas sadasdas sadasdas\n" +
-                "ggggggh ggggggh ggggggh ggggggh\n" +
-                "uuuuuuuuuuu uuuuuuuuuuu uuuuuuuuuuu uuuuuuuuuuu";
+        String expected = "Jarek Jarek Jarek     Jarek Jarek Jarek\n" +
+                "\n" +
+                "Jarek Jarek Jarek\n" +
+                "\n" +
+                "\n" +
+                "Jarek Jarek Jarek\n" +
+                "\n" +
+                "asdasdas   asdasdas  asdasdas   asdasdas  asdasdas\n" +
+                "kkkkkkkkk kkkkkkkkk kkkkkkkkk kkkkkkkkk kkkkkkkkk kkkkkkkkk\n" +
+                "\n" +
+                "\n" +
+                "nnnnnn\n" +
+                "nnnnnn\n" +
+                "nnnnnn\n" +
+                "nnnnnn\n" +
+                "nnnnnn\n" +
+                "\n" +
+                "xyz xyz xyz xyz xyz xyz xyz xyz";
         //When
         String readActual = reader.read();
 

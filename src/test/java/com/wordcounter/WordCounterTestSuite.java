@@ -1,5 +1,7 @@
 package com.wordcounter;
 
+import com.wordcounter.counter.Counter;
+import com.wordcounter.counter.WordCounter;
 import org.junit.Before;
 import org.junit.Test;
 

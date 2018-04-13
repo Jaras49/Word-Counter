@@ -1,6 +1,5 @@
-package com.wordcounter.reader;
+package com.wordcounter.counter.reader;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

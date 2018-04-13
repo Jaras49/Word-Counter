@@ -1,4 +1,4 @@
-package com.wordcounter.reader;
+package com.wordcounter.counter.reader;
 
 import java.io.BufferedReader;
 import java.io.File;

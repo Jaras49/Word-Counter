@@ -1,4 +1,4 @@
-package com.wordcounter.reader;
+package com.wordcounter.counter.reader;
 
 public interface Reader {
 

@@ -8,23 +8,23 @@ import java.util.stream.Collectors;
 
 public class WordCounter implements Counter {
 
-    private final HashMap<String, Integer> map;
+    private HashMap<String, Integer> map;
     private final Reader reader;
 
     public WordCounter(final Reader reader) {
-        map = new HashMap<>();
         this.reader = reader;
     }
 
     @Override
     public List<String> getPopularWords(int numberOfWords, File file) {
+        map = new HashMap<>();
 
         return process(reader.read(file), numberOfWords);
     }
 
     @Override
     public List<String> getPopularWords(int numberOfWords, String text) {
-
+        map = new HashMap<>();
         return process(text, numberOfWords);
     }
 

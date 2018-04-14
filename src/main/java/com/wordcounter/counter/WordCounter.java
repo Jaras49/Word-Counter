@@ -2,6 +2,7 @@ package com.wordcounter.counter;
 
 import com.wordcounter.counter.reader.Reader;
 
+import java.io.File;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -16,9 +17,9 @@ public class WordCounter implements Counter {
     }
 
     @Override
-    public List<String> getPopularWords(int numberOfWords) {
+    public List<String> getPopularWords(int numberOfWords, File file) {
 
-        return process(reader.read());
+        return process(reader.read(file));
     }
 
     private List<String> process(String text) {

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #03BAFC; -fx-border-color: #787878; -fx-border-width: 7;" stylesheets="@CSS/textAreaBackground.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.wordcounter.Controller">
+   <children>
+      <TextArea fx:id="textArea" editable="false" layoutX="21.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" text="Author : Jaras &#10;&#10;&#10;WordCounter is a simple program made for fun and educational &#10;reasons that searches for most common used words in a text. &#10;&#10;&#10;Paste text into text window and press find to proceed. &#10;You can also choose file by Choose File button and search for &#10;most common words in a document. It supports operations of &#10;.txt files. &#10;&#10;&#10;COMMING : support for .doc and .pdf files . " AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+      <Button fx:id="backButton" layoutY="455.0" mnemonicParsing="false" onAction="#goBackButtonClick" text="Go Back" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+   </children>
+</AnchorPane>

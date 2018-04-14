@@ -1,0 +1,14 @@
+.text-area  {
+    -fx-text-fill: black;
+    -fx-opacity: 0.9;
+
+}
+.text-area .content {
+    -fx-background-color:  #03BAFC;
+;
+}
+
+.button {
+    -fx-background-color: black;
+    -fx-text-fill: #7D827E;
+}

@@ -1,6 +1,8 @@
 package com.wordcounter.counter.reader;
 
+import java.io.File;
+
 public interface Reader {
 
-    String read();
+    String read(File file);
 }

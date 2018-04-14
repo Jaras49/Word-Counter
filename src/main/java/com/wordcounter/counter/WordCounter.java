@@ -25,6 +25,7 @@ public class WordCounter implements Counter {
     @Override
     public List<String> getPopularWords(int numberOfWords, String text) {
         map = new HashMap<>();
+
         return process(text, numberOfWords);
     }
 

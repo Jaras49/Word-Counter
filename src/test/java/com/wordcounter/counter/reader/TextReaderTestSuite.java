@@ -2,6 +2,8 @@ package com.wordcounter.counter.reader;
 
 import org.junit.Test;
 
+import java.io.File;
+
 import static org.junit.Assert.*;
 
 public class TextReaderTestSuite {
@@ -11,6 +13,7 @@ public class TextReaderTestSuite {
 
         //Given
         Reader reader = new TextReader();
+        File file = new File(getClass().getClassLoader().getResource("test.txt").getFile());
         String expected = "Jarek Jarek Jarek     Jarek Jarek Jarek\n" +
                 "\n" +
                 "Jarek Jarek Jarek\n" +
@@ -30,7 +33,7 @@ public class TextReaderTestSuite {
                 "\n" +
                 "xyz xyz xyz xyz xyz xyz xyz xyz";
         //When
-        String readActual = reader.read();
+        String readActual = reader.read(file);
 
         //Then
         assertEquals(expected, readActual);

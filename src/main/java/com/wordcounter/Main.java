@@ -6,13 +6,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-
 import java.io.IOException;
 
 public class Main extends Application {
 
-    private static Stage primaryStage;
     private static final String APP_VERSION = "WordCounterApp 0.5v";
+    private static Stage primaryStage;
 
     private static void setPrimaryStage(Stage stage) {
         Main.primaryStage = stage;

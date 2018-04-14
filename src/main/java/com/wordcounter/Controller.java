@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import java.io.File;
@@ -18,16 +19,19 @@ public class Controller {
     private static final String MAIN_WINDOW_FXML_ADRESS = "../../../resources/GUI/MainWindow.fxml";
     private static final String ABOUT_US_PAGE_FXML_ADRESS = "../../../resources/GUI/AboutUsPage.fxml";
 
+    private WordCounter wordCounter = new WordCounter(new TextReader());
+
     @FXML
     private TextArea textArea;
-    WordCounter wordCounter = new WordCounter(new TextReader());
+    @FXML
+    private TextField textField;
 
     @FXML private void chooseFileButtonClick(){
         FileChooser fileChooser = new FileChooser();
         File file = fileChooser.showOpenDialog(null);
-        textArea.setText(wordCounter.getPopularWords(3, file).stream()
-        .collect(Collectors.joining(" ")));
 
+        textArea.setText(wordCounter.getPopularWords(getIntFromTextField(), file).stream()
+        .collect(Collectors.joining("\n")));
     }
 
     @FXML private void aboutButtonClick()throws IOException {
@@ -38,7 +42,9 @@ public class Controller {
         changeStage(MAIN_WINDOW_FXML_ADRESS);
     }
 
-    @FXML private void proceedButtonClick() {
+    @FXML private void findButtonClick() {
+        textArea.setText(wordCounter.getPopularWords(getIntFromTextField(), textArea.getText()).stream()
+                .collect(Collectors.joining("\n")));
 
     }
 
@@ -48,5 +54,15 @@ public class Controller {
         Stage stage = Main.getStage();
         stage.setScene(new Scene(root));
         stage.show();
+    }
+
+    private int getIntFromTextField() {
+        int value;
+        try {
+            value = Integer.parseInt(textField.getText());
+        }catch (NumberFormatException e) {
+            value = 3;
+        }
+        return value;
     }
 }

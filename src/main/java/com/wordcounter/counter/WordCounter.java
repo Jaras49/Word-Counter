@@ -19,10 +19,16 @@ public class WordCounter implements Counter {
     @Override
     public List<String> getPopularWords(int numberOfWords, File file) {
 
-        return process(reader.read(file));
+        return process(reader.read(file), numberOfWords);
     }
 
-    private List<String> process(String text) {
+    @Override
+    public List<String> getPopularWords(int numberOfWords, String text) {
+
+        return process(text, numberOfWords);
+    }
+
+    private List<String> process(String text , int numberOfWords) {
 
         String[] textArray = text.replaceAll("( )+", " ").split(" ");
 
@@ -30,7 +36,7 @@ public class WordCounter implements Counter {
                 .map(n -> n.replaceAll("[^a-zA-Z]", ""))
                 .forEach(this::addWordToMap);
 
-        return getWordsFromMap();
+        return getWordsFromMap(numberOfWords);
     }
 
     private void addWordToMap(String word) {
@@ -39,12 +45,11 @@ public class WordCounter implements Counter {
         map.put(word, map.get(word) + 1);
     }
 
-    private List<String> getWordsFromMap() {
-        int numOfWords = 3;
+    private List<String> getWordsFromMap(int numberOfWords) {
 
         return map.entrySet().stream()
                 .sorted((e1, e2) -> e2.getValue().compareTo(e1.getValue()))
-                .limit(numOfWords)
+                .limit(numberOfWords)
                 .map(Map.Entry::getKey)
                 .collect(Collectors.toList());
     }
